@@ -1,0 +1,18 @@
+{
+  "manifest_created_utc": "2026-09-28T10:42:40.026592+00:00",
+  "note": "This manifest is project metadata, not a publisher response. Source files are unmodified.",
+  "sources": [
+    {
+      "file": "dailyExtract_2025.xml",
+      "url": "https://www.hko.gov.hk/cis/dailyExtract/dailyExtract_2025.xml",
+      "bytes": 32443,
+      "sha256": "36a3229d21c1f80cecb4bcac1c8ce8f3e14b99d7d0436693e64b9df907e26cdc"
+    },
+    {
+      "file": "dailyExtract-source.html",
+      "url": "https://www.hko.gov.hk/en/cis/dailyExtract.htm?y=2025&m=1",
+      "bytes": 20758,
+      "sha256": "347eb605218a9c9db46eee3aa6b187cb2b557c261d1ba8e6e1527d55f81aa11c"
+    }
+  ]
+}
