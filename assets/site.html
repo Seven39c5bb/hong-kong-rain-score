@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="香港雨谱 · A year of Hong Kong rainfall, drawn as a twelve-line score. Explore 365 real observations from the Hong Kong Observatory in 2025.">
+  <title>Hong Kong Rain Score · 香港雨谱</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23f5f2e9'/%3E%3Cpath d='M11 10v15M20 10v23M29 10v10' stroke='%2329667a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#score">Skip to the rainfall score</a>
+<header class="masthead wrap">
+  <a class="brand" href="#" aria-label="Hong Kong Rain Score home"><span class="brand-mark" aria-hidden="true">Ⅲ</span> FIELD NOTES <span class="brand-place">/ HONG KONG</span></a>
+  <nav aria-label="Main"><a href="#score">The score</a><a href="#reading">How to read</a><a href="https://github.com/Seven39c5bb/hong-kong-rain-score">GitHub ↗</a></nav>
+</header>
+<main>
+  <section class="hero wrap" aria-labelledby="title">
+    <div class="eyebrow"><span class="dot"></span> RAINFALL STUDY <span lang="zh-Hant">香港雨譜</span></div>
+    <div class="hero-title"><h1 id="title">A year of rain,<br><em>written in days.</em></h1><div class="year" aria-label="Year 2025">20<br>25<span>01 JAN — 31 DEC</span></div></div>
+    <p class="intro">Dry spells, passing showers, sudden downpours.<br>365 days at the Hong Kong Observatory, composed into a single score.</p>
+    <div class="hero-bottom"><p lang="zh-Hant">把一年的雨，寫成十二行時間的樂譜。</p><a class="text-link" href="#score">Explore the year <span aria-hidden="true">↓</span></a></div>
+  </section>
+  <section class="stats wrap" aria-label="Annual rainfall summary">
+    <div><span class="stat-label">01 / THE YEAR</span><p class="stat-value">{{TOTAL}} <small>mm</small></p><span class="stat-note">Annual numeric rainfall*</span></div>
+    <div><span class="stat-label">02 / THE CONCENTRATION</span><p class="stat-value">{{SHARE}}<small>%</small></p><span class="stat-note">Fell in July–September*</span></div>
+    <div><span class="stat-label">03 / THE PEAK</span><p class="stat-value accent">{{PEAK}} <small>mm</small></p><span class="stat-note">Wettest day · 05 August</span></div>
+  </section>
+  <section class="score-section wrap" id="score" aria-labelledby="score-title">
+    <div class="section-heading"><div><p class="eyebrow">THE OBSERVATIONS</p><h2 id="score-title">Twelve months. One rhythm.</h2></div><a class="download" href="rain-score.png" download>Download poster <span aria-hidden="true">↗</span></a></div>
+    <div class="controls" hidden>
+      <div class="scale-controls" role="group" aria-label="Stroke length scale"><span class="control-label">SCALE</span><button class="active" type="button" data-scale="sqrt" aria-pressed="true">Square root</button><button type="button" data-scale="linear" aria-pressed="false">Linear</button></div>
+      <label class="month-filter">FOCUS <select id="month"><option value="0">Whole year</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></label>
+    </div>
+    <p class="chart-instruction" hidden>Choose a day to read its rainfall. Use ← → on the score to move between days. On a small screen, scroll the score sideways.</p>
+    <div class="readout" hidden aria-live="polite" aria-atomic="true"><span id="selected-date">05 AUGUST 2025</span><strong id="selected-value">{{PEAK}} mm</strong><span id="selected-note">The wettest day of the year</span></div>
+    <div class="score-scroll" tabindex="0" role="region" aria-label="Rainfall score, horizontally scrollable on small screens">{{SCORE}}</div>
+    <div class="legend"><span><i class="legend-rain"></i> Measured rain</span><span><i class="legend-zero"></i> 0 mm · {{ZERO_DAYS}} days</span><span><i class="legend-trace"></i> Trace &lt;0.05 mm · {{TRACE_DAYS}} days</span><span><i class="legend-absent"></i> Date outside month</span></div>
+    <p class="scale-note" id="scale-note">Square-root length scale, shared by all months: four times the rain makes a stroke twice as long.</p>
+    <p class="fine-print">* Totals and seasonal share exclude unquantified Trace amounts. There are no missing daily values.</p>
+    <noscript><p class="fine-print">The full score is visible without JavaScript. Enable JavaScript to inspect days and compare scales.</p></noscript>
+  </section>
+  <section class="reading wrap" id="reading" aria-labelledby="reading-title">
+    <div><p class="eyebrow">BEHIND THE MARKS</p><h2 id="reading-title">Rain is a number.<br>The rhythm is a choice.</h2><p lang="zh-Hant" class="chinese-note">每一筆都有真實的觀測依據。線的長短是設計的選擇，雨量不是。</p><a class="text-link" href="rain-score.svg" download>Download vector artwork ↗</a></div>
+    <div class="method-list">
+      <article><span>01</span><div><h3>One day, one mark.</h3><p>Read months downward and days across. Blue strokes descend with rainfall; the orange stroke marks 5 August, the highest daily reading. Open circles preserve trace rainfall as a category, rather than inventing an exact value.</p></div></article>
+      <article><span>02</span><div><h3>Two scales, the same rain.</h3><p>The square-root scale reveals light rain alongside the largest downpours. Switch to linear to see lengths proportional to millimetres. Both use the same 0–400 mm range in every month. Monthly totals always remain unchanged.</p></div></article>
+      <article><span>03</span><div><h3>What a score cannot tell you.</h3><p>One station cannot describe every district. Daily totals hide when rain fell and how intense it was within the day. The concentration in one year does not establish a long-term climate trend.</p></div></article>
+    </div>
+  </section>
+  <section class="source wrap" aria-labelledby="source-title"><div><p class="eyebrow">REAL OBSERVATIONS / REPRODUCIBLE WORK</p><h2 id="source-title">From the Observatory<br>to the page.</h2></div><div><p>Hong Kong Observatory · Daily Extract of Meteorological Observations, 2025. The original file contains 365 daily rows plus monthly summaries. All twelve monthly rainfall sums have been checked against the published totals.</p><p class="fine-print">Original snapshot: 28 September 2026. Source bytes are preserved unchanged in the repository. This page uses the saved snapshot; it is not live weather.</p><div class="source-links"><a href="https://www.hko.gov.hk/en/cis/dailyExtract.htm?y=2025&amp;m=1">Official source ↗</a><a href="dailyExtract_2025.xml" download>Raw observations ↓</a><a href="https://github.com/Seven39c5bb/hong-kong-rain-score/blob/main/PROCESS.md">Design process ↗</a></div></div></section>
+</main>
+<footer class="wrap"><span>HONG KONG RAIN SCORE <span lang="zh-Hant">/ 香港雨譜</span></span><span>Seven · SD5913 · 2026</span></footer>
+<script id="rainfall-data" type="application/json">{{DATA}}</script>
+</body>
+</html>

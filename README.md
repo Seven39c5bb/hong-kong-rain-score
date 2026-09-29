@@ -2,6 +2,8 @@
 
 **A year of rain, written one day at a time.**
 
+[Explore the interactive website →](https://seven39c5bb.github.io/hong-kong-rain-score/)
+
 ![Hong Kong Rain Score: twelve monthly rows of daily rainfall in 2025, with downward strokes proportional to the square root of millimetres](out/rain-score.png)
 
 ## The phenomenon
@@ -33,6 +35,18 @@ The first [linear daily chart](out/baseline.png) is retained as a comparison. Th
 ```bash
 uv run plot.py
 ```
+
+## Website
+
+The [GitHub Pages edition](https://seven39c5bb.github.io/hong-kong-rain-score/) lets readers inspect each day, focus on a month, and compare square-root and linear scales. Keyboard arrows move between days; the current value stays visible while scrolling. The page is responsive, with a horizontally scrollable score on narrow screens. It uses local styles, scripts and observations, with no external fonts, libraries or live weather calls. Its complete chart remains visible without JavaScript.
+
+Generate the page locally, then open `site/index.html`:
+
+```bash
+uv run build_site.py
+```
+
+Every push to `main` rebuilds `site/` from the committed data and deploys it through `.github/workflows/pages.yml`. The generated `site/` directory is ignored by Git; the source template, styles and interactions live in `assets/`. PNG and SVG outputs remain committed for the assignment README.
 
 ## Process
 

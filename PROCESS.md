@@ -18,7 +18,7 @@ The implementation keeps HKO's `Trace` state as a distinct open circle. HKO defi
 2. **Trusting a file extension.** The annual file ends in `.xml`, but HKO's own page parses it as JSON. The original bytes and extension are preserved; the parser follows the contents rather than assuming XML.
 3. **Using summary rows as daily observations.** Every month includes `Mean/Total` and `Normal` rows. They are not extra days. The totals are used for validation and the climatological references are excluded from the drawing. Unknown row labels raise an error instead of being silently skipped.
 4. **A linear scale for the final twelve-line score.** A conventional linear chart was created first and retained as `out/baseline.png`. The 368.9 mm peak leaves little room for light rainfall at the compact scale of one month row. The final design uses a shared square-root length scale, with examples and explicit wording. This improves visibility but compresses differences between large amounts; the numeric monthly totals preserve a directly readable reference.
-5. **Unnecessary interactive features.** A self-contained PNG and SVG satisfy the brief and embed reliably in the README. A web page and animation would add work without helping the specific question about annual concentration.
+5. **Animation for its own sake.** The first version focused on a self-contained PNG and SVG. For the requested website extension on 29 September, the project adds interactions that help read the same data: day inspection, month focus, and scale comparison. An animation is still omitted because it does not help compare the full year.
 
 ## Validation and limits
 
@@ -32,4 +32,6 @@ The source is a single station, so it cannot describe rainfall across every dist
 
 ## Development history
 
-On 28 September 2026, the work proceeded through source acquisition and parsing, a first linear plot, and the designed score plus documentation. Each stage is committed with its real timestamp. **The assignment requires work across more than one day.** Today's commits cannot establish that; a genuine review or improvement on a later day is still needed. No timestamps are backdated, and inherited template commits are not counted as the student's development history.
+On 28 September 2026, the work proceeded through source acquisition and parsing, a first linear plot, and the designed score plus documentation. On 29 September, the student requested the optional website publication. Codex rechecked the source hashes and monthly sums, built a responsive static page, added date inspection and scale comparison, and configured GitHub Pages to rebuild from the saved observations. The existing repository was private and required public visibility for the course submission. Each development stage is committed with its real timestamp across these two days; no timestamps are backdated.
+
+The website was inspected in Microsoft Edge. The checks included switching between linear and square-root scales, reading a trace observation and a zero-rain observation, moving with the keyboard, and focusing on August. This review identified that the daily readout was too far below the long chart, so it was moved above the chart and made sticky while scrolling. The raw snapshot and the original poster's totals remain unchanged.
